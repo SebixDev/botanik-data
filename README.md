@@ -9,7 +9,7 @@ BotanikData ist eine interaktive Anwendung zur Verwaltung von Pflanzenpflege-Dat
 
 ## Technische Umsetzung
 Das Projekt wurde mit Fokus auf ein modulares Grundgerüst entwickelt:
-* **HTML5 & CSS3:** Struktur und responsives Design.
+* **HTML5 & CSS3:** Struktur und responsives Design. Angefangen: 16.01
 * **JavaScript (ES6):** Logik zur Datenverarbeitung und dynamischen Elementerzeugung.
 * **State-Management:** Trennung von Datenmodell (Array/Objekte) und der visuellen Darstellung (Render-Funktion).
 
