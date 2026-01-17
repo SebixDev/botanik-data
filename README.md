@@ -31,7 +31,7 @@ Verschiebe den Projektordner in das Verzeichnis C:\xampp\htdocs\.
 
 Starte das XAMPP Control Panel und aktiviere Apache sowie MySQL.
 
-Rufe die Anwendung im Browser über http://localhost/botanik-data-main/ auf.
+Rufe die Anwendung im Browser über http://localhost/botanik-data/ auf.
 
 Roadmap
 Zukünftige Erweiterungen und nächste Schritte:
