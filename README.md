@@ -42,4 +42,4 @@ CRUD-Funktionalität: Erstellen, Lesen, Aktualisieren und Löschen von Einträge
 
 Suchfunktion: Effiziente Volltextsuche innerhalb großer botanischer Bestände.
 
-Erinnerungs-System: Logik zur Berechnung und Anzeige anstehender Pflegeaufgaben (z. B. "Gießen in 2 Tagen").
+Erinnerungs-System: Logik zur Berechnung und Anzeige anstehender Pflegeaufgaben
