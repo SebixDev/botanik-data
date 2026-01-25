@@ -6,7 +6,7 @@ Pflanzen speichern: Ich kann Informationen zu meinen Pflanzen eingeben.
 
 Dynamische Liste: Die Liste auf der Seite aktualisiert sich sofort, wenn ich etwas eintippe.
 
-NEU (24.01.2026): Porblem mit lokalem Ordner behoben und Glassstyle hinzugefügt.
+NEU (25.01.2026): Neue Animation im CSS, Neue Aufgaben wie Löschfunktion und Speicherfunktion vorbereitet für 26.01
 
 Fehler behoben: Ich habe den Fehler korrigiert, bei dem sich die Seite nach dem Drücken der Enter-Taste einfach neu geladen hat.
 
