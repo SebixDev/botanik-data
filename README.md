@@ -6,11 +6,9 @@ Pflanzen speichern: Ich kann Informationen zu meinen Pflanzen eingeben.
 
 Dynamische Liste: Die Liste auf der Seite aktualisiert sich sofort, wenn ich etwas eintippe.
 
-NEU (25.01.2026): Neue Animation im CSS, Neue Aufgaben wie Löschfunktion und Speicherfunktion vorbereitet für 26.01
+NEU (26.01.2026): MySQL-Datenbank erstellt und sie erfolgreich über PHP mit deinem Frontend verknüpft.
 
-Fehler behoben: Ich habe den Fehler korrigiert, bei dem sich die Seite nach dem Drücken der Enter-Taste einfach neu geladen hat.
-
-Wie ich es gebaut habe
+Wie ich es gebaut habe:
 XAMPP: Damit lasse ich die Seite auf meinem eigenen Computer laufen.
 
 PHP: Das nutze ich, damit die Seite später mit einer Datenbank sprechen kann.
@@ -19,7 +17,7 @@ JavaScript: Das ist der "Motor" für die Liste. Ich habe den Code heute direkt i
 
 HTML & CSS: Für den Aufbau und das Aussehen der Seite.
 
-Mein Plan für die Zukunft
+Mein Plan für die Zukunft:
 Datenbank (MySQL): Die Pflanzen sollen auch dann noch da sein, wenn ich die Seite schließe oder neu lade.
 
 Bearbeiten & Löschen: Ich möchte einzelne Pflanzen später auch wieder ändern können.

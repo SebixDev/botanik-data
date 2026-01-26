@@ -7,11 +7,31 @@ document.addEventListener('DOMContentLoaded', function() {
     function pflanzeHinzufuegen() {
         const text = input.value.trim();
         if (text !== "") {
-            const neuesLi = document.createElement('li');
-            neuesLi.textContent = text;
-            liste.appendChild(neuesLi);
-            input.value = ""; 
-            input.focus();    
+            const jetzt = new Date();
+            const zeit = jetzt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+            const formData = new FormData();
+            formData.append('text', text);
+            formData.append('zeit', zeit);
+
+            fetch('save.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === "Erfolg") {
+                    const neuesLi = document.createElement('li');
+                    neuesLi.innerHTML = `<span>${text}</span><small>${zeit}</small>`;
+                    neuesLi.addEventListener('click', function() {
+                        this.classList.toggle('done');
+                    });
+                    liste.appendChild(neuesLi);
+                    input.value = ""; 
+                    input.focus();
+                }
+            })
+            .catch(error => console.error("Fehler:", error));
         }
     }
 
