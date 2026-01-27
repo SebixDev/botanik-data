@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearBtn = document.getElementById('clear-btn');
     const input = document.getElementById('todo-input');
     const liste = document.getElementById('pflanzen-liste');
+    const darkModeBtn = document.getElementById('dark-mode-toggle');
+
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
 
     function pflanzeHinzufuegen() {
         const text = input.value.trim();

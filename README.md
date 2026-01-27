@@ -6,7 +6,7 @@ Pflanzen speichern: Ich kann Informationen zu meinen Pflanzen eingeben.
 
 Dynamische Liste: Die Liste auf der Seite aktualisiert sich sofort, wenn ich etwas eintippe.
 
-NEU (26.01.2026): MySQL-Datenbank erstellt und sie erfolgreich über PHP mit deinem Frontend verknüpft.
+NEU (27.01.2026): Dark-Mode Funktion eingebaut.
 
 Wie ich es gebaut habe:
 XAMPP: Damit lasse ich die Seite auf meinem eigenen Computer laufen.
