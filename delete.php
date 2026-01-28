@@ -1,15 +1,15 @@
 <?php
 include 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $sql = "DELETE FROM pflanzen ORDER BY id DESC LIMIT 1";
-    
-    if ($conn->query($sql) === TRUE) {
+$sql = "DELETE FROM pflanzen ORDER BY id DESC LIMIT 1";
+
+if ($conn->query($sql) === TRUE) {
+    if ($conn->affected_rows > 0) {
         echo "Erfolg";
     } else {
-        echo "Fehler: " . $conn->error;
+        echo "Datenbank leer";
     }
 } else {
-    echo "Kein POST-Request empfangen";
+    echo "Fehler: " . $conn->error;
 }
 ?>

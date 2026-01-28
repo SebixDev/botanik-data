@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.focus();
                 }
             })
-            .catch(error => console.error("Fehler:", error));
+            .catch(error => console.error("Fehler beim Speichern:", error));
         }
     }
 
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (clearBtn) {
         clearBtn.addEventListener('click', function() {
             if (liste && liste.lastElementChild) {
-                const dummyData = new FormData();
-                dummyData.append('action', 'delete');
+                const formData = new FormData();
+                formData.append('action', 'delete');
 
                 fetch('delete.php', {
                     method: 'POST',
-                    body: dummyData
+                    body: formData
                 })
                 .then(response => response.text())
                 .then(data => {
