@@ -3,6 +3,7 @@
     --container-bg: rgba(255, 255, 255, 0.05);
     --text-color: white;
     --leaf-gradient: linear-gradient(135deg, rgba(34, 139, 34, 0.8), rgba(0, 255, 127, 0.4));
+    --accent-color: #00ff7f;
 }
 
 body.dark-mode {
@@ -10,6 +11,7 @@ body.dark-mode {
     --container-bg: rgba(0, 0, 0, 0.4);
     --text-color: #d1d1d1;
     --leaf-gradient: linear-gradient(135deg, rgba(20, 80, 20, 0.8), rgba(0, 100, 50, 0.4));
+    --accent-color: #145014;
 }
 
 body {
@@ -97,14 +99,20 @@ h2 {
 li {
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 10px;
+    padding: 12px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-left: 0 solid transparent;
 }
 
-li:hover { background: rgba(255, 255, 255, 0.1); border-radius: 8px; }
+li:hover { 
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 0 8px 8px 0;
+    transform: translateX(8px);
+    border-left: 4px solid var(--accent-color);
+}
 
 li small {
     color: rgba(255, 255, 255, 0.6);

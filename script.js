@@ -67,8 +67,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (clearBtn) {
         clearBtn.addEventListener('click', function() {
             if (liste && liste.lastElementChild) {
-                liste.removeChild(liste.lastElementChild);
+                const dummyData = new FormData();
+                dummyData.append('action', 'delete');
+
+                fetch('delete.php', {
+                    method: 'POST',
+                    body: dummyData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.trim() === "Erfolg") {
+                        liste.removeChild(liste.lastElementChild);
+                    }
+                })
+                .catch(error => console.error("Fehler beim Löschen:", error));
             }
         });
     }
+
+    const bestehendeEintraege = document.querySelectorAll('#pflanzen-liste li');
+    bestehendeEintraege.forEach(li => {
+        li.addEventListener('click', function() {
+            this.classList.toggle('done');
+        });
+    });
 });
