@@ -3,6 +3,7 @@ BotanikData - Pflanzen-Management System (Fertiggestellt)
 Ein modernes, webbasiertes System zur Verwaltung von Pflanzen, entwickelt mit PHP, JavaScript und CSS. Das Projekt kombiniert funktionale Datenbank-Logik mit einem moderdem Design.
 
 
+
 Features
 
 Pflanzen-Liste: Dynamisches Hinzufügen und Löschen von Pflanzen-Einträgen.
@@ -20,6 +21,7 @@ Dark Mode: Ein voll integrierter Modus für eine dunklere, augenschonende Darste
 Interaktive Animationen: Hover-Effekte auf Listen-Elementen und Buttons.
 
 
+
 Verwendete Technologien
 
 Frontend: HTML, CSS.
@@ -33,6 +35,7 @@ Styling: Modernes CSS inklusive Pseudo-Elementen für komplexe Hintergrund-Effek
 Debugging: Nutzung der Browser-Entwicklertools  zur Fehleranalyse und Cache-Management.
 
 
+
 Nutzung
 
 Alle Dateien auf einen Webserver (z. B. XAMPP) hochladen.
@@ -40,6 +43,7 @@ Alle Dateien auf einen Webserver (z. B. XAMPP) hochladen.
 Sicherstellen, dass die CSS-Datei korrekt verknüpft ist.
 
 Bei Änderungen im Browser Strg + F5 drücken, um den Cache zu leeren.
+
 
 
 Status: Abgeschlossen am 29.01.2026
