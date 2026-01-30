@@ -4,6 +4,7 @@ Ein modernes, webbasiertes System zur Verwaltung von Pflanzen, entwickelt mit PH
 
 
 Features
+
 Pflanzen-Liste: Dynamisches Hinzufügen und Löschen von Pflanzen-Einträgen.
 
 Status-Tracking: Markieren von erledigten Aufgaben direkt in der Liste.
@@ -20,6 +21,7 @@ Interaktive Animationen: Hover-Effekte auf Listen-Elementen und Buttons.
 
 
 Verwendete Technologien
+
 Frontend: HTML, CSS.
 
 Interaktion: Vanilla JavaScript.
@@ -32,6 +34,7 @@ Debugging: Nutzung der Browser-Entwicklertools  zur Fehleranalyse und Cache-Mana
 
 
 Nutzung
+
 Alle Dateien auf einen Webserver (z. B. XAMPP) hochladen.
 
 Sicherstellen, dass die CSS-Datei korrekt verknüpft ist.
