@@ -1,29 +1,42 @@
-BotanikData
-BotanikData ist mein drittes Web-Projekt. Es hilft mir dabei, meine Pflanzen digital zu verwalten (z. B. Name, Art und wie oft sie Wasser brauchen).
+BotanikData - Pflanzen-Management System (Fertiggestellt)
 
-Was die Seite kann
-Pflanzen speichern: Ich kann Informationen zu meinen Pflanzen eingeben.
+Ein modernes, webbasiertes System zur Verwaltung von Pflanzen, entwickelt mit PHP, JavaScript und CSS. Das Projekt kombiniert funktionale Datenbank-Logik mit einem moderdem Design.
 
-Dynamische Liste: Die Liste auf der Seite aktualisiert sich sofort, wenn ich etwas eintippe.
 
-NEU (29.01.2026): CSS geändert: alte Animation gelöscht und Sternehintergrund eingefügt.
+Features
+Pflanzen-Liste: Dynamisches Hinzufügen und Löschen von Pflanzen-Einträgen.
 
-Wie ich es gebaut habe:
-XAMPP: Damit lasse ich die Seite auf meinem eigenen Computer laufen.
+Status-Tracking: Markieren von erledigten Aufgaben direkt in der Liste.
 
-PHP: Das nutze ich, damit die Seite später mit einer Datenbank sprechen kann.
+Datenbank-Anbindung: Dauerhafte Speicherung der Daten via PHP und SQL.
 
-JavaScript: Das ist der "Motor" für die Liste. Ich habe den Code heute direkt in die Hauptdatei geschrieben, damit er schneller und ohne Fehler vom Browser geladen wird.
+Glassmorphism UI: Ein eleganter, transparenter Container mit Unschärfe-Effekt (backdrop-filter).
 
-HTML & CSS: Für den Aufbau und das Aussehen der Seite.
+Goldener Sternenregen: Ein animierter Hintergrund mit fallenden Sternen in Gold, Silber und Weiß.
 
-Mein Plan für die Zukunft:
-Datenbank (MySQL): Die Pflanzen sollen auch dann noch da sein, wenn ich die Seite schließe oder neu lade.
+Dark Mode: Ein voll integrierter Modus für eine dunklere, augenschonende Darstellung.
 
-Bearbeiten & Löschen: Ich möchte einzelne Pflanzen später auch wieder ändern können.
+Interaktive Animationen: Hover-Effekte auf Listen-Elementen und Buttons.
 
-Suchen: Eine Suchleiste für meine Pflanzensammlung.
 
-Erinnerung: Die Seite soll mir sagen, welche Pflanze wann gegossen werden muss.
+Verwendete Technologien
+Frontend: HTML, CSS.
 
-Erweiterung: Ganz praktisch wäre auch noch die Erweiterung von den verschiedenen Bildern der jeweiligen Pflanze.
+Interaktion: Vanilla JavaScript.
+
+Backend: PHP.
+
+Styling: Modernes CSS inklusive Pseudo-Elementen für komplexe Hintergrund-Effekte.
+
+Debugging: Nutzung der Browser-Entwicklertools  zur Fehleranalyse und Cache-Management.
+
+
+Nutzung
+Alle Dateien auf einen Webserver (z. B. XAMPP) hochladen.
+
+Sicherstellen, dass die CSS-Datei korrekt verknüpft ist.
+
+Bei Änderungen im Browser Strg + F5 drücken, um den Cache zu leeren.
+
+
+Status: Abgeschlossen am 29.01.2026
