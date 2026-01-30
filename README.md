@@ -1,4 +1,4 @@
-BotanikData - Pflanzen-Management System
+BotanikData  -  Pflanzen-Management System
 
 Ein modernes, webbasiertes System zur Verwaltung von Pflanzen, entwickelt mit PHP, JavaScript und CSS. Das Projekt kombiniert funktionale Datenbank-Logik mit einem moderdem Design.
 
