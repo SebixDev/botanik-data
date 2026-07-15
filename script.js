@@ -1,94 +1,91 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const addBtn = document.getElementById('add-btn');
-    const clearBtn = document.getElementById('clear-btn');
-    const input = document.getElementById('todo-input');
-    const liste = document.getElementById('pflanzen-liste');
-    const darkModeBtn = document.getElementById('dark-mode-toggle');
+const input      = document.getElementById('pflanzen-input');
+const addBtn     = document.getElementById('add-btn');
+const clearBtn   = document.getElementById('clear-btn');
+const liste      = document.getElementById('pflanzen-liste');
+const themeBtn   = document.getElementById('theme-toggle');
+const meldungEl  = document.getElementById('meldung');
 
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-    }
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+}
 
-    if (darkModeBtn) {
-        darkModeBtn.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    }
+themeBtn.addEventListener('click', () => {
+    const istDunkel = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', istDunkel ? 'dark' : 'light');
+});
 
-    function pflanzeHinzufuegen() {
-        const text = input.value.trim();
-        if (text !== "") {
-            const jetzt = new Date();
-            const zeit = jetzt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+function zeigeMeldung(text) {
+    meldungEl.textContent = text;
+    setTimeout(() => { meldungEl.textContent = ''; }, 3000);
+}
 
-            const formData = new FormData();
-            formData.append('text', text);
-            formData.append('zeit', zeit);
+function erstelleEintrag(name, zeit) {
+    const li = document.createElement('li');
 
-            fetch('save.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                if (data.trim() === "Erfolg") {
-                    const neuesLi = document.createElement('li');
-                    neuesLi.innerHTML = `<span>${text}</span><small>${zeit}</small>`;
-                    neuesLi.addEventListener('click', function() {
-                        this.classList.toggle('done');
-                    });
-                    liste.appendChild(neuesLi);
-                    input.value = ""; 
-                    input.focus();
-                }
-            })
-            .catch(error => console.error("Fehler beim Speichern:", error));
+    const nameEl = document.createElement('span');
+    nameEl.textContent = name;
+
+    const zeitEl = document.createElement('small');
+    zeitEl.textContent = zeit;
+
+    li.append(nameEl, zeitEl);
+    return li;
+}
+
+async function pflanzeHinzufuegen() {
+    const name = input.value.trim();
+    if (name === '') return;
+
+    const formData = new FormData();
+    formData.append('name', name);
+
+    try {
+        const response = await fetch('save.php', { method: 'POST', body: formData });
+        const data = await response.json();
+
+        if (!response.ok) {
+            zeigeMeldung(data.fehler ?? 'Speichern fehlgeschlagen');
+            return;
         }
+
+        liste.appendChild(erstelleEintrag(data.name, data.zeit));
+        input.value = '';
+        input.focus();
+    } catch (error) {
+        console.error(error);
+        zeigeMeldung('Server nicht erreichbar');
     }
+}
 
-    if (addBtn) {
-        addBtn.addEventListener('click', pflanzeHinzufuegen);
+async function letzteEntfernen() {
+    if (!liste.lastElementChild) return;
+
+    try {
+        const response = await fetch('delete.php', { method: 'POST' });
+        const data = await response.json();
+
+        if (!response.ok) {
+            zeigeMeldung(data.fehler ?? 'Löschen fehlgeschlagen');
+            return;
+        }
+
+        if (data.geloescht) {
+            liste.lastElementChild.remove();
+        } else {
+            zeigeMeldung(data.meldung);
+        }
+    } catch (error) {
+        console.error(error);
+        zeigeMeldung('Server nicht erreichbar');
     }
+}
 
-    if (input) {
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                pflanzeHinzufuegen();
-            }
-        });
+addBtn.addEventListener('click', pflanzeHinzufuegen);
+clearBtn.addEventListener('click', letzteEntfernen);
+
+input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        pflanzeHinzufuegen();
     }
-
-    if (clearBtn) {
-        clearBtn.addEventListener('click', function() {
-            if (liste && liste.lastElementChild) {
-                const formData = new FormData();
-                formData.append('action', 'delete');
-
-                fetch('delete.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.text())
-                .then(data => {
-                    if (data.trim() === "Erfolg") {
-                        liste.removeChild(liste.lastElementChild);
-                    }
-                })
-                .catch(error => console.error("Fehler beim Löschen:", error));
-            }
-        });
-    }
-
-    const bestehendeEintraege = document.querySelectorAll('#pflanzen-liste li');
-    bestehendeEintraege.forEach(li => {
-        li.addEventListener('click', function() {
-            this.classList.toggle('done');
-        });
-    });
 });

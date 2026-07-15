@@ -1,39 +1,44 @@
-<?php include 'db.php'; ?>
+<?php
+declare(strict_types=1);
+require 'db.php';
+
+$pflanzen = $conn->query("SELECT id, name, erstellt_am FROM pflanzen ORDER BY id ASC");
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BotanikData</title>
-    <link rel="stylesheet" href="style.css?v=999">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <div class="container">
-        <button id="dark-mode-toggle">Design umschalten</button>
-        
-        <h2>Pflanzenliste</h2>
-        
+        <button id="theme-toggle">Design umschalten</button>
+
+        <h1>Pflanzenliste</h1>
+
         <div class="input-group">
-            <input type="text" id="todo-input" placeholder="Neue Pflanze...">
+            <label for="pflanzen-input" class="visually-hidden">Neue Pflanze</label>
+            <input type="text" id="pflanzen-input" placeholder="Neue Pflanze..." maxlength="255" autocomplete="off">
             <button id="add-btn">Hinzufügen</button>
         </div>
 
+        <p id="meldung" class="meldung" role="status"></p>
+
         <ul id="pflanzen-liste">
-            <?php
-            $result = $conn->query("SELECT * FROM pflanzen ORDER BY id ASC");
-            if ($result && $result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<li><span>" . htmlspecialchars($row['name']) . "</span><small>" . htmlspecialchars($row['zeitstempel']) . "</small></li>";
-                }
-            }
-            ?>
+            <?php while ($row = $pflanzen->fetch_assoc()): ?>
+                <li>
+                    <span><?= htmlspecialchars($row['name']) ?></span>
+                    <small><?= date('d.m.Y H:i', strtotime($row['erstellt_am'])) ?></small>
+                </li>
+            <?php endwhile; ?>
         </ul>
-        
+
         <button id="clear-btn">Letzte Pflanze entfernen</button>
     </div>
-
-    <script src="script.js"></script>
 
 </body>
 </html>
