@@ -4,7 +4,7 @@ Ein kleines Pflanzen-Verwaltungssystem mit PHP und MySQL. Einträge werden über
  
 > **Lernprojekt.** Ziel war es, den Weg der Daten vom Browser über PHP in die Datenbank und zurück einmal vollständig selbst zu bauen – mein erstes Projekt mit eigenem Backend.
  
-**Status: Abgeschlossen am 16. Juli 2026**
+**Status: Abgeschlossen am 29. Januar 2026**
  
 ## ✨ Features
  
@@ -29,20 +29,7 @@ CREATE TABLE IF NOT EXISTS pflanzen (
     erstellt_am DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 ```
- 
-## 🚀 Starten
- 
-1. Projekt in das `htdocs`-Verzeichnis von XAMPP legen, Apache und MySQL starten.
-2. In phpMyAdmin die Datenbank `botanik-data` anlegen und `struktur.sql` importieren.
-3. `db.example.php` zu `db.php` kopieren und die Zugangsdaten eintragen.
-4. `http://localhost/botanik-data/` im Browser öffnen.
-## 📚 Was ich dabei gelernt habe
- 
-- **Zeitstempel gehören in die Datenbank.** Anfangs hat das JavaScript die Uhrzeit mitgeschickt – abhängig von der Systemuhr des Nutzers, ohne Datum und als `VARCHAR` gespeichert, also nicht sortierbar. Mit `DATETIME DEFAULT CURRENT_TIMESTAMP` erledigt das die Datenbank, und im Frontend fällt Code weg.
-- **Prepared Statements statt String-Verkettung.** Der Wert wird getrennt von der Abfrage übertragen und kann so gar nicht erst als SQL interpretiert werden.
-- **Ausgaben immer maskieren.** Neue Einträge wurden per `innerHTML` in die Liste geschrieben – damit lässt sich HTML aus dem Eingabefeld einschleusen. `createElement` und `textContent` verhindern das.
-- **Schreibende Aktionen brauchen POST.** `delete.php` hat auf jeden Aufruf hin gelöscht, auch beim reinen Öffnen der URL. Jetzt prüft das Skript die Request-Methode.
-- **Zugangsdaten gehören nicht ins Repository.** Die echte `db.php` steht in der `.gitignore`, eingecheckt ist nur `db.example.php`.
----
- 
+
+ ---
+
 Privates Lernprojekt, entwickelt für die lokale Ausführung mit XAMPP.
